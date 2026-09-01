@@ -1,0 +1,20 @@
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.1
+python-multipart>=0.0.9
+numpy>=2.0.0
+pandas>=2.2.0
+scipy>=1.14.0
+scikit-learn>=1.5.0
+opencv-python-headless>=4.10.0
+pillow>=10.0.0
+
+# torch/torchvision are only needed for the optional /predict/photo
+# (MobileSAM) feature. They pull in a multi-GB CUDA/GPU stack that isn't
+# needed on Render's CPU-only web services, drastically slows the build,
+# and risks OOM-killing small instances. Leave commented out unless you
+# specifically need the aerial-photo upload feature and have sized your
+# Render instance accordingly (and switch to CPU wheels, e.g. add
+# --extra-index-url https://download.pytorch.org/whl/cpu).
+# torch>=2.5.0
+# torchvision>=0.20.0
+# mobile-sam installed separately — see below
